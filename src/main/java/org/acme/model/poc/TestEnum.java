@@ -1,4 +1,4 @@
-package org.acme.model;
+package org.acme.model.poc;
 
 public enum TestEnum {
     ONE("eins"), TWO("zwei"), THREE("drei");

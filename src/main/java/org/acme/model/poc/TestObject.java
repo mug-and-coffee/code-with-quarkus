@@ -1,4 +1,4 @@
-package org.acme.model;
+package org.acme.model.poc;
 
 
 import java.time.LocalDate;
@@ -12,6 +12,9 @@ public class TestObject {
     private Boolean isReal;
     private Double price;
     private Float fullPrice;
+
+    public TestObject() {
+    }
 
     public TestObject(Long id, Integer nr, String name, LocalDate birthDate, TestEnum testEnum, Boolean isReal, Double price, Float fullPrice) {
         this.id = id;
