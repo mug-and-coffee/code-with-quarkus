@@ -52,14 +52,10 @@ public class QuickEntryService {
      */
     public static boolean addQuickEntry(QuickEntry entry) {
 
-        Reader reader = new Reader();
-        int counter = reader.readFile().size();
-        System.out.println(counter);
+        int counter = new Reader().readQuickEntry().size();
         String newEntry = CVS.toString(entry, counter+1);
-        System.out.println(newEntry);
-        Writer writer = new Writer();
 
-        return writer.writeNewQuickEntry(newEntry);
+        return new Writer().writeNewQuickEntry(newEntry);
     }
 
     /**

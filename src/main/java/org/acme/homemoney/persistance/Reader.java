@@ -1,7 +1,6 @@
 package org.acme.homemoney.persistance;
 
 import java.io.*;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,14 +12,16 @@ public class Reader {
      *
      * @return
      */
-    public List<String> readFile() {
+    public List<String> readQuickEntry() {
 
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream data = classloader.getResourceAsStream("data/quickentry.cvs");
         int c;
-        StringBuffer buff = new StringBuffer();
+        StringBuilder buff = new StringBuilder();
         try {
-            while ((c = data.read()) != -1) {
+            while (true) {
+                assert data != null;
+                if ((c = data.read()) == -1) break;
                 buff.append((char) c);
             }
             data.close();

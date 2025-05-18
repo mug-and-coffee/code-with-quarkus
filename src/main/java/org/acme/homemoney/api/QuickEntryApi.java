@@ -39,14 +39,6 @@ public class QuickEntryApi {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public boolean saveQuickEntry(QuickEntry entry) {
-        System.out.println("Recieved: " + entry.toString());
-        boolean result = QuickEntryService.addQuickEntry(entry);
-        if(result) {
-            System.out.println("Ein neuer Schnelleintrag wurde erfolgreich gespeichert");
-            return true;
-        } else {
-            System.out.println("Fehler beim Speichern");
-            return false;
-        }
+        return QuickEntryService.addQuickEntry(entry);
     }
 }

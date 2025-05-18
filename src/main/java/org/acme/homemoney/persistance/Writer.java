@@ -4,14 +4,20 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Writer {
+
+    /**
+     * Method to write a new QuickEntry
+     *
+     * @param entry
+     * @return
+     */
     public boolean writeNewQuickEntry(String entry) {
         String filename= "./src/main/resources/data/quickentry.cvs";
-        FileWriter fw = null; //the true will append the new data
+        FileWriter fw = null;
         try {
             fw = new FileWriter(filename,true);
             fw.write("\n");
-            System.out.println(fw);
-            fw.write(entry);//appends the string to the file
+            fw.write(entry);
             fw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
