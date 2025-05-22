@@ -10,6 +10,11 @@ import java.util.List;
 
 public class QuickEntryService {
 
+    public static QuickEntry getById(Long id, List<QuickEntry> all) {
+        System.out.println("[- - - QuickEntryService(getById) - - -]");
+        return all.stream().filter(obj -> obj.getId().equals(id)).findFirst().get();
+    }
+
     public static int getAmount(List<String> entries) {
         return entries.size();
     }
@@ -51,10 +56,8 @@ public class QuickEntryService {
      * @return
      */
     public static boolean addQuickEntry(QuickEntry entry) {
-
-        int counter = new Reader().readQuickEntry().size();
-        String newEntry = CVS.toString(entry, counter+1);
-
+        int newId = new Reader().getQuickEntriesAsStringList().size()+1;
+        String newEntry = CVS.toString(entry, newId);
         return new Writer().writeNewQuickEntry(newEntry);
     }
 

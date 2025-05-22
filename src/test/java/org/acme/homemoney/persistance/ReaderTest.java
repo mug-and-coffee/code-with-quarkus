@@ -7,7 +7,7 @@ class ReaderTest {
     @Test
     void test() {
         Reader r = new Reader();
-        r.readQuickEntry();
+        r.getQuickEntriesAsStringList();
     }
 
 }

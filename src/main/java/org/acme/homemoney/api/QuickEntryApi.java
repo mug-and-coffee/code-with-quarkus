@@ -38,7 +38,15 @@ public class QuickEntryApi {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public boolean saveQuickEntry(QuickEntry entry) {
-        return QuickEntryService.addQuickEntry(entry);
+    public Boolean saveQuickEntry(QuickEntry entry) {
+        System.out.println(entry);
+        if(entry.getSubject() == null || entry.getRecipient() == null || entry.getPrice() == null) {
+            System.out.println("OH NO");
+            return Boolean.FALSE;
+        }
+
+        boolean result = QuickEntryService.addQuickEntry(entry);
+        System.out.println(result);
+        return result;
     }
 }

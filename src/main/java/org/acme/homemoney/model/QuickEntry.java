@@ -4,19 +4,30 @@ import java.time.LocalDate;
 
 public class QuickEntry {
 
+    private Long id;
+
     private Double price;
     private String recipient;
     private String subject;
     private LocalDate date;
 
-    public QuickEntry(Double price, String location, String subject, LocalDate date) {
+    public QuickEntry(Long id, Double price, String recipient, String subject, LocalDate date) {
+        this.id = id;
         this.price = price;
-        this.recipient = location;
+        this.recipient = recipient;
         this.subject = subject;
         this.date = date;
     }
 
     public QuickEntry() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Double getPrice() {
